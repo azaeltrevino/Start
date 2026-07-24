@@ -5,52 +5,46 @@ A self-contained, mobile-responsive lead-generation landing page built for **Tra
 ## Files
 
 ```
-index.html        Page markup/content
-css/styles.css     All styling (navy + orange trades palette)
-js/main.js         Mobile nav toggle, FAQ accordion, footer year
-assets/img/        Logo (placeholder — swap with your real logo)
+index.html          Page markup/content
+css/styles.css       All styling (black + red trades palette, matches logo)
+js/main.js           Mobile nav toggle, FAQ accordion, footer year
+assets/img/logo.svg        Logo — dark version (red/black on white, used for favicon)
+assets/img/logo-white.svg  Logo — reversed version for dark header/footer backgrounds
 ```
 
 Open `index.html` directly in a browser, or serve the folder with any static host, to preview.
 
-## 1. Swap in your real logo
+## 1. Logo
 
-Replace `assets/img/logo-placeholder.svg` with your actual logo file (PNG/SVG). Keep the filename the same, or update the two `<img src="assets/img/...">` references in `index.html` (header and footer).
+`assets/img/logo.svg` and `assets/img/logo-white.svg` are a vector recreation of your hard-hat worker mark (red/black/white), built from the image you shared — this environment couldn't save your original raster file directly. If you want the exact pixel file used instead of the recreation, drop your real logo (PNG/SVG) into `assets/img/` and update the `<img src="assets/img/...">` references in `index.html` (header + favicon use the white/reversed version on the dark header, footer uses the white version too; the plain `logo.svg` is only used for the favicon).
 
-## 2. Update brand colors (optional)
+## 2. Brand colors
 
-Colors are defined once at the top of `css/styles.css`:
+Colors are defined once at the top of `css/styles.css`, matched to the logo:
 
 ```css
 :root{
-  --navy-900:#0a1830;
-  --orange:#ff6b35;
+  --navy-900:#0d0d0d;  /* near-black, header/footer/dark sections */
+  --orange:#e4172a;    /* brand red, buttons/accents */
   ...
 }
 ```
 
-Change `--orange` and the `--navy-*` values to match your brand and every section updates automatically.
+Change these values and every section updates automatically.
 
-## 3. Connect your GHL Calendar
+## 3. GHL Calendar — already connected
 
-Find the placeholder block in `index.html` inside `<section class="booking">`:
-
-```html
-<div class="calendar-placeholder" id="calendarPlaceholder">
-  ...
-</div>
-```
-
-In GoHighLevel: **Settings → Calendars → (your calendar) → Embed Code**, then replace the whole `calendar-placeholder` div with the snippet GHL gives you, which looks like:
+The booking section in `index.html` already has your live calendar embedded:
 
 ```html
-<iframe src="https://api.leadconnectorhq.com/widget/booking/YOUR_CALENDAR_ID"
+<iframe src="https://api.leadconnectorhq.com/widget/bookings/test-test-personal-calendar-0xxmpurse-fb0febbb-a2e2-4578-84ce-3a34a0b51e4eh7ypkq"
         style="width:100%;height:100%;min-height:700px;border:none;overflow:hidden"
-        scrolling="no" id="ghl-calendar"></iframe>
-<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+        scrolling="no" id="ghl-calendar" title="Book your free strategy call"></iframe>
 ```
 
-The `.booking-widget` container is already styled (rounded corners, shadow, min-height) so the iframe will sit nicely once dropped in.
+plus the required `form_embed.js` script before `</body>`. If you swap calendars later, replace just the `src` URL with the new one from **Settings → Calendars → (your calendar) → Embed Code**.
+
+Note: this sandbox's network policy blocks `leadconnectorhq.com`, so it couldn't be visually verified from here — but the markup is standard GHL embed syntax and will render normally once the page is hosted for real or opened in GHL.
 
 ## 4. Integrating into GoHighLevel
 

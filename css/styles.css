@@ -1,18 +1,18 @@
 /* ===== Trades Pro Marketing — Landing Page Styles ===== */
 :root{
-  --navy-900:#0a1830;
-  --navy-800:#0f2440;
-  --navy-700:#16335a;
-  --orange:#ff6b35;
-  --orange-dark:#e2551f;
-  --ink:#1c2733;
-  --gray-600:#5a6b7d;
-  --gray-200:#e6eaef;
-  --bg-light:#f5f7fa;
+  --navy-900:#0d0d0d;
+  --navy-800:#1a1a1a;
+  --navy-700:#2b2b2b;
+  --orange:#e4172a;
+  --orange-dark:#b8121f;
+  --ink:#181818;
+  --gray-600:#5a5a5a;
+  --gray-200:#e6e6e6;
+  --bg-light:#f7f7f7;
   --white:#ffffff;
   --radius:12px;
-  --shadow:0 10px 30px rgba(10,24,48,.10);
-  --shadow-lg:0 20px 50px rgba(10,24,48,.18);
+  --shadow:0 10px 30px rgba(0,0,0,.10);
+  --shadow-lg:0 20px 50px rgba(0,0,0,.20);
   --max-w:1160px;
 }
 
@@ -40,7 +40,7 @@ ul{margin:0;padding:0;list-style:none;}
   text-transform:uppercase;
   margin-bottom:.75em;
 }
-.eyebrow.light{color:#ffb591;}
+.eyebrow.light{color:#ff8a95;}
 .center{text-align:center;}
 .section-sub{color:var(--gray-600);max-width:620px;margin:0 auto 2.5em;}
 .section-sub.center{margin-left:auto;margin-right:auto;}
@@ -59,7 +59,7 @@ ul{margin:0;padding:0;list-style:none;}
 .btn-primary{
   background:var(--orange);
   color:var(--white);
-  box-shadow:0 8px 20px rgba(255,107,53,.35);
+  box-shadow:0 8px 20px rgba(228,23,42,.35);
 }
 .btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);}
 .btn-lg{padding:18px 36px;font-size:1.05rem;}
@@ -68,7 +68,7 @@ ul{margin:0;padding:0;list-style:none;}
 /* Header */
 .site-header{
   position:sticky;top:0;z-index:50;
-  background:rgba(10,24,48,.96);
+  background:rgba(13,13,13,.96);
   backdrop-filter:blur(6px);
 }
 .header-inner{
@@ -77,7 +77,7 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .brand-logo{height:34px;width:auto;}
 .nav-desktop{display:none;gap:32px;}
-.nav-desktop a{color:#cfd9e6;font-weight:600;font-size:.92rem;}
+.nav-desktop a{color:#d4d4d4;font-weight:600;font-size:.92rem;}
 .nav-desktop a:hover{color:var(--white);}
 .nav-toggle{
   display:flex;flex-direction:column;justify-content:center;gap:5px;
@@ -90,7 +90,7 @@ ul{margin:0;padding:0;list-style:none;}
   padding:8px 24px 20px;
 }
 .nav-mobile.open{display:flex;}
-.nav-mobile a{padding:12px 0;color:#cfd9e6;font-weight:600;border-bottom:1px solid rgba(255,255,255,.08);}
+.nav-mobile a{padding:12px 0;color:#d4d4d4;font-weight:600;border-bottom:1px solid rgba(255,255,255,.08);}
 .nav-mobile .btn{margin-top:12px;text-align:center;}
 
 @media(min-width:900px){
@@ -111,9 +111,9 @@ ul{margin:0;padding:0;list-style:none;}
 .hero .eyebrow{justify-content:center;}
 .hero h1{font-size:2.1rem;margin-bottom:.6em;}
 .hero h1 .accent{color:var(--orange);}
-.hero-sub{color:#c4d0e0;font-size:1.05rem;max-width:640px;margin:0 auto 1.8em;}
+.hero-sub{color:#cfcfcf;font-size:1.05rem;max-width:640px;margin:0 auto 1.8em;}
 .hero-cta-row{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:2.5em;}
-.hero-cta-note{display:flex;flex-direction:column;align-items:center;gap:2px;color:#c4d0e0;font-size:.85rem;}
+.hero-cta-note{display:flex;flex-direction:column;align-items:center;gap:2px;color:#cfcfcf;font-size:.85rem;}
 .stars{color:#ffb840;letter-spacing:2px;}
 .hero-trust{
   display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
@@ -122,7 +122,7 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .trust-stat{display:flex;flex-direction:column;gap:2px;}
 .trust-stat strong{font-size:1.5rem;color:var(--white);}
-.trust-stat span{color:#a9b8cc;font-size:.78rem;}
+.trust-stat span{color:#b5b5b5;font-size:.78rem;}
 
 @media(min-width:700px){
   .hero{padding:100px 0 72px;}
@@ -193,8 +193,8 @@ ul{margin:0;padding:0;list-style:none;}
   padding:28px;
   border:1px solid rgba(255,255,255,.08);
 }
-.testimonial-quote{color:#d7e0ec;font-size:1rem;}
-.testimonial-name{color:#9fb0c7;font-size:.85rem;font-weight:600;margin:0;}
+.testimonial-quote{color:#dcdcdc;font-size:1rem;}
+.testimonial-name{color:#adadad;font-size:.85rem;font-weight:600;margin:0;}
 @media(min-width:900px){.results-grid{grid-template-columns:repeat(3,1fr);}}
 
 /* Guarantee */
@@ -207,7 +207,7 @@ ul{margin:0;padding:0;list-style:none;}
   font-size:1.6rem;margin:0 auto 16px;
 }
 .guarantee h2{font-size:1.7rem;}
-.guarantee p{margin:0;color:#fff2ea;}
+.guarantee p{margin:0;color:#ffe0e2;}
 
 /* Booking */
 .booking{padding:80px 0;background:var(--bg-light);}
@@ -224,16 +224,10 @@ ul{margin:0;padding:0;list-style:none;}
   background:var(--white);
   border-radius:var(--radius);
   box-shadow:var(--shadow-lg);
-  min-height:480px;
+  min-height:700px;
   overflow:hidden;
 }
-.calendar-placeholder{
-  height:100%;min-height:480px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:40px;color:var(--gray-600);
-  background:repeating-linear-gradient(45deg, var(--bg-light), var(--bg-light) 10px, #eef1f5 10px, #eef1f5 20px);
-}
-.calendar-placeholder strong{color:var(--navy-900);}
+.booking-widget iframe{display:block;}
 @media(min-width:900px){.booking-inner{grid-template-columns:1fr 1.1fr;}}
 
 /* FAQ */
@@ -256,17 +250,17 @@ ul{margin:0;padding:0;list-style:none;}
 .final-cta{background:var(--navy-900);color:var(--white);padding:72px 0;text-align:center;}
 .final-cta-inner{max-width:600px;margin:0 auto;}
 .final-cta h2{font-size:1.9rem;}
-.final-cta p{color:#c4d0e0;margin-bottom:1.8em;}
+.final-cta p{color:#cfcfcf;margin-bottom:1.8em;}
 
 /* Footer */
-.site-footer{background:var(--navy-900);color:#9fb0c7;padding:48px 0 0;}
+.site-footer{background:var(--navy-900);color:#adadad;padding:48px 0 0;}
 .footer-inner{display:grid;gap:32px;grid-template-columns:1fr;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);}
-.footer-brand p{color:#9fb0c7;max-width:280px;margin-top:12px;}
+.footer-brand p{color:#adadad;max-width:280px;margin-top:12px;}
 .footer-links{display:grid;gap:24px;grid-template-columns:repeat(3,1fr);}
 .footer-links h4{color:var(--white);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
-.footer-links a{display:block;color:#9fb0c7;padding:5px 0;font-size:.92rem;}
+.footer-links a{display:block;color:#adadad;padding:5px 0;font-size:.92rem;}
 .footer-links a:hover{color:var(--white);}
-.footer-bottom{padding:20px 0;text-align:center;font-size:.82rem;color:#7488a2;}
+.footer-bottom{padding:20px 0;text-align:center;font-size:.82rem;color:#8a8a8a;}
 @media(min-width:800px){.footer-inner{grid-template-columns:1.2fr 2fr;}}
 
 /* Sticky mobile CTA */
