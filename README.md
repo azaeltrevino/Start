@@ -9,17 +9,19 @@ index.html          Main landing page
 thank-you.html       Post-booking confirmation page (VSL + testimonials)
 css/styles.css       All styling (black + red trades palette, matches logo), shared by both pages
 js/main.js           Mobile nav toggle, FAQ accordion, footer year
-assets/img/logo.svg        Logo — dark version (red/black on white, used for favicon)
-assets/img/logo-white.svg  Logo — reversed version for dark header/footer backgrounds
+assets/img/logo.png        Your real logo — original colors, transparent background (favicon)
+assets/img/logo-white.png  Your real logo — recolored white/red, transparent background (dark header/footer)
 ```
 
 Open `index.html` directly in a browser, or serve the folder with any static host, to preview.
 
 ## 1. Logo
 
-`assets/img/logo.svg` and `assets/img/logo-white.svg` are a vector recreation of your hard-hat worker mark (red/black/white), built from the image you shared — this environment couldn't save your original raster file directly. The wordmark was previously getting clipped ("TRADESPRC") because the SVG canvas was too narrow for the text; both files have been rebuilt with a wider canvas and a simpler icon so the full "TRADESPRO MARKETING" wordmark renders cleanly at every size.
+`assets/img/logo.png` is your real logo, pulled directly from the file you shared, with the white background removed (transparent PNG) so it drops cleanly onto any section.
 
-If you want the exact pixel file used instead of the recreation, drop your real logo (PNG/SVG) into `assets/img/` and update the `<img src="assets/img/...">` references in `index.html` and `thank-you.html` (the white/reversed version is used on dark header/footer backgrounds on both pages; the plain `logo.svg` is only used for the favicon).
+`assets/img/logo-white.png` is the same artwork with the black portions recolored white (red stays red) for use on the dark header/footer — the original file has a black silhouette that would disappear against a black background, so this reversed version is used there instead. It's a programmatic recolor, not a separate file you sent, so double-check it against your actual brand guidelines if you have a formal reversed/white logo version already.
+
+If you'd rather supply your own pre-made white/reversed version instead of the auto-generated one, drop it in as `assets/img/logo-white.png` (same filename) and it'll be picked up automatically.
 
 ## 2. Brand colors
 
