@@ -5,8 +5,9 @@ A self-contained, mobile-responsive lead-generation landing page built for **Tra
 ## Files
 
 ```
-index.html          Page markup/content
-css/styles.css       All styling (black + red trades palette, matches logo)
+index.html          Main landing page
+thank-you.html       Post-booking confirmation page (VSL + testimonials)
+css/styles.css       All styling (black + red trades palette, matches logo), shared by both pages
 js/main.js           Mobile nav toggle, FAQ accordion, footer year
 assets/img/logo.svg        Logo — dark version (red/black on white, used for favicon)
 assets/img/logo-white.svg  Logo — reversed version for dark header/footer backgrounds
@@ -16,7 +17,9 @@ Open `index.html` directly in a browser, or serve the folder with any static hos
 
 ## 1. Logo
 
-`assets/img/logo.svg` and `assets/img/logo-white.svg` are a vector recreation of your hard-hat worker mark (red/black/white), built from the image you shared — this environment couldn't save your original raster file directly. If you want the exact pixel file used instead of the recreation, drop your real logo (PNG/SVG) into `assets/img/` and update the `<img src="assets/img/...">` references in `index.html` (header + favicon use the white/reversed version on the dark header, footer uses the white version too; the plain `logo.svg` is only used for the favicon).
+`assets/img/logo.svg` and `assets/img/logo-white.svg` are a vector recreation of your hard-hat worker mark (red/black/white), built from the image you shared — this environment couldn't save your original raster file directly. The wordmark was previously getting clipped ("TRADESPRC") because the SVG canvas was too narrow for the text; both files have been rebuilt with a wider canvas and a simpler icon so the full "TRADESPRO MARKETING" wordmark renders cleanly at every size.
+
+If you want the exact pixel file used instead of the recreation, drop your real logo (PNG/SVG) into `assets/img/` and update the `<img src="assets/img/...">` references in `index.html` and `thank-you.html` (the white/reversed version is used on dark header/footer backgrounds on both pages; the plain `logo.svg` is only used for the favicon).
 
 ## 2. Brand colors
 
@@ -46,7 +49,17 @@ plus the required `form_embed.js` script before `</body>`. If you swap calendars
 
 Note: this sandbox's network policy blocks `leadconnectorhq.com`, so it couldn't be visually verified from here — but the markup is standard GHL embed syntax and will render normally once the page is hosted for real or opened in GHL.
 
-## 4. Integrating into GoHighLevel
+## 4. Thank-you page (`thank-you.html`)
+
+A simple, single-focus follow-up page that visitors land on after booking — logo, confirmation message, VSL slot, testimonials, minimal footer. No nav, no upsell sections, matching the "keep it simple" style of the reference funnel page.
+
+**To add your VSL:** open `thank-you.html`, find the `<div class="video-embed" id="vslEmbed">` block, and replace the `.embed-placeholder` div inside it with your video's embed code (Wistia, Vimeo, YouTube, or a GHL Video element). The `.video-embed` container already handles the responsive 16:9 sizing, rounded corners, and shadow — just drop an `<iframe>` (or GHL's video embed snippet) directly inside it.
+
+**To update testimonials:** the three `.testimonial-card` blocks are identical in structure to the ones on the main page — copy/paste more, or edit the quote/name text in place.
+
+**To connect it to your calendar:** in GHL, open your calendar's settings and look for **Actions → Redirect URL / Confirmation Page** (naming varies slightly by GHL version), and set it to your hosted `thank-you.html` URL (e.g. `https://yourdomain.com/thank-you.html`). That makes GHL send people here automatically right after they book, instead of showing its default confirmation screen.
+
+## 5. Integrating into GoHighLevel
 
 You have two options:
 
@@ -61,13 +74,13 @@ You have two options:
 
 Option A is generally better for lead tracking, since GHL's native form/calendar elements automatically create contacts and trigger your automations. Option B is faster to stand up if you just need the page live.
 
-## 5. Lead capture / form → GHL automations
+## 6. Lead capture / form → GHL automations
 
 This page currently drives all traffic to the calendar booking section rather than a separate form, so once step 3 is done (real GHL calendar embedded), every booking already creates/updates a GHL contact automatically — no extra webhook needed.
 
 If you'd also like a top-of-funnel lead form (e.g., "Get My Free Growth Plan") before the calendar step, add a GHL **Form** element in the `booking` section and connect it to a workflow that triggers your follow-up automations.
 
-## 6. Content you'll likely want to personalize
+## 7. Content you'll likely want to personalize
 
 - Phone number and email in the footer (`tel:` / `mailto:` links)
 - Testimonials (currently placeholder quotes/names)

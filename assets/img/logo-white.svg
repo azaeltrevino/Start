@@ -1,39 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200" role="img" aria-label="TradesPro Marketing">
-  <g transform="translate(20,20)">
-    <!-- worker silhouette: red outline, white fill, facing right -->
-    <path d="M78 0
-             C110 0 132 16 138 40
-             C150 44 158 54 158 66
-             C158 76 152 84 142 88
-             L142 96
-             C142 108 134 116 122 118
-             L128 132
-             L110 140
-             L104 122
-             C96 126 86 128 76 126
-             L40 150
-             L0 168
-             L0 200
-             L200 200
-             L200 150
-             L150 128
-             C158 118 162 104 158 90
-             L150 60
-             C146 30 116 6 78 0 Z"
-          fill="#FFFFFF" stroke="#E4172A" stroke-width="6" stroke-linejoin="round"/>
-    <!-- hard hat -->
-    <path d="M40 40
-             C40 12 62 -8 92 -8
-             C120 -8 142 8 148 32
-             L150 40
-             C154 40 158 44 158 50
-             L158 56
-             L34 56
-             L34 50
-             C34 45 37 41 40 40 Z"
-          fill="#FFFFFF" stroke="#E4172A" stroke-width="6" stroke-linejoin="round"/>
-    <rect x="30" y="52" width="132" height="14" rx="6" fill="#E4172A"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" role="img" aria-label="TradesPro Marketing">
+  <g transform="translate(20,15)">
+    <path d="M30,62 C30,20 55,-6 80,-6 C105,-6 130,20 130,62 Z" fill="#e4172a"/>
+    <rect x="22" y="54" width="116" height="14" rx="7" fill="#e4172a"/>
+    <circle cx="80" cy="90" r="38" fill="#ffffff" stroke="#e4172a" stroke-width="6"/>
+    <path d="M14,170 L14,145 C14,122 42,108 80,108 C118,108 146,122 146,145 L146,170 Z" fill="#ffffff" stroke="#e4172a" stroke-width="6" stroke-linejoin="round"/>
   </g>
-  <text x="240" y="98" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" fill="#E4172A" letter-spacing="1">TRADESPRO</text>
-  <text x="242" y="150" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF" letter-spacing="10">MARKETING</text>
+  <text x="200" y="112" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" fill="#e4172a">TRADESPRO</text>
+  <text x="202" y="156" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800" fill="#ffffff" letter-spacing="8">MARKETING</text>
 </svg>
