@@ -87,4 +87,5 @@ If you'd also like a top-of-funnel lead form (e.g., "Get My Free Growth Plan") b
 - Phone number and email in the footer (`tel:` / `mailto:` links)
 - Testimonials (currently placeholder quotes/names)
 - Stats in the hero trust bar (`$14M+`, `3,200+`, `4.9/5`)
-- Guarantee terms if 90 days doesn't match your actual offer, or the "3 new clients per month" scarcity claim in the urgency copy if that's not accurate
+- The 90-day money-back guarantee copy (hero, guarantee section, booking list) — this is a real refund promise as written, so make sure it matches what you're actually willing to honor before this goes live, or swap it for a guarantee you can back up
+- The "3 new clients per month" scarcity claim in the urgency copy if that's not accurate
