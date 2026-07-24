@@ -72,4 +72,4 @@ If you'd also like a top-of-funnel lead form (e.g., "Get My Free Growth Plan") b
 - Phone number and email in the footer (`tel:` / `mailto:` links)
 - Testimonials (currently placeholder quotes/names)
 - Stats in the hero trust bar (`$14M+`, `3,200+`, `4.9/5`)
-- Guarantee terms if 60 days doesn't match your actual offer
+- Guarantee terms if 90 days doesn't match your actual offer, or the "3 new clients per month" scarcity claim in the urgency copy if that's not accurate
