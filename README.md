@@ -63,18 +63,36 @@ A simple, single-focus follow-up page that visitors land on after booking — lo
 
 ## 5. Integrating into GoHighLevel
 
-You have two options:
+You have two options. Option A puts the page directly inside GHL's Sites/Funnels product (what most people mean by "put it in GHL"). Option B hosts it elsewhere and only uses GHL for the calendar/automations.
 
-**Option A — Import as a GHL Funnel/Website page (recommended)**
-1. In GHL, go to **Sites → Funnels (or Websites) → + New**.
-2. Add a **Custom HTML/CSS/JS** element (or use "Import from URL/Code" if your subaccount has it) and paste the contents of `index.html`, `css/styles.css`, and `js/main.js` in, or upload the CSS/JS as custom code in the page's Settings → Custom CSS/Custom JS panels.
-3. Rebuild the sections that need native GHL elements (the Calendar block, and the lead form if you want GHL to own submissions/automations) using GHL's drag-and-drop elements dropped into the matching sections — the rest of the page (hero, services, testimonials, FAQ) can stay as custom HTML.
+### Option A — Paste it into a GHL Funnel/Website (recommended)
 
-**Option B — Host it yourself and link/iframe from GHL**
-1. Deploy this folder to any static host (Netlify, Vercel, Cloudflare Pages, GitHub Pages, etc.) or your own server.
-2. Point your domain (or a subdomain) at it, or embed it inside a GHL page via an iframe element pointing to your hosted URL.
+GHL's page builder can't read relative file paths like `css/styles.css` or `assets/img/logo.png` — its Custom Code element only accepts one self-contained HTML block. So instead of pasting `index.html` as-is, use the pre-built files in **`ghl-embed/`**, which have the CSS and JS already inlined:
 
-Option A is generally better for lead tracking, since GHL's native form/calendar elements automatically create contacts and trigger your automations. Option B is faster to stand up if you just need the page live.
+- `ghl-embed/main-page-embed.html` → for your main funnel step
+- `ghl-embed/thank-you-embed.html` → for the follow-up step
+
+Steps:
+1. **Upload your logo images to GHL first**, so they have a public URL Custom Code can point to:
+   - In GHL: **Sites → Media Storage** (or **Settings → Media Storage**) → Upload `assets/img/logo.png` and `assets/img/logo-white.png`.
+   - Click each uploaded file and copy its URL.
+2. **Open `ghl-embed/main-page-embed.html`** in a text editor and replace every `{{LOGO_WHITE_URL}}` with the logo-white.png URL you just copied (there are 2 — header and footer). Do the same in `ghl-embed/thank-you-embed.html` (also 2 occurrences).
+3. **Create the funnel:** in GHL go to **Sites → Funnels → + New Funnel**, name it, and add a step for your main page (choose a **blank** template so there's no pre-built content in the way).
+4. On that page, delete any default sections GHL added, then drag in a **Custom Code / Custom HTML** element covering the page, open its code editor, and paste in the entire contents of your edited `main-page-embed.html`. Save.
+5. **Add a second funnel step** for the thank-you page the same way, using `thank-you-embed.html`.
+6. **Set your favicon** separately — that's a page/funnel **Settings** option in GHL (not part of the Custom Code block); upload `assets/img/logo.png` there.
+7. **Publish the funnel**, then connect your real domain under **Settings → Domains** if you don't want to launch on GHL's default subdomain.
+8. **Point the calendar's redirect** at your new thank-you step's live URL: open your calendar's settings → **Actions → Redirect URL / Confirmation Page** → paste the thank-you page's published URL.
+9. **Test it end to end**: open the published funnel, book a real test appointment on the calendar, confirm you land on the thank-you page, and confirm the contact shows up in GHL.
+
+The calendar iframe and `form_embed.js` script are already correct GHL syntax in both embed files, so you don't need to touch those — they just need to be inside a live GHL page (or any real domain) to work; they won't render from a local file.
+
+### Option B — Host it yourself, use GHL only for calendar/automations
+
+1. Deploy this repo's root folder (as-is, with the relative paths intact) to any static host — Netlify, Vercel, Cloudflare Pages, GitHub Pages, or your own server.
+2. Point your domain at it. The GHL calendar embed and thank-you redirect work exactly the same either way.
+
+Option A keeps everything inside GHL (one dashboard, easier for non-technical edits later via the page builder). Option B is faster to stand up and easier to keep in version control, but lives outside GHL.
 
 ## 6. Lead capture / form → GHL automations
 
