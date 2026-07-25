@@ -1,19 +1,24 @@
 # Trades Pro Marketing — Landing Page
 
-A self-contained, mobile-responsive lead-generation landing page built for **Trades Pro Marketing**, modeled on the high-converting funnel pattern used by remodeling/trade-focused marketing agencies (hero offer → pain points → services → process → social proof → guarantee → calendar booking → FAQ → final CTA).
+A self-contained, mobile-responsive lead-generation funnel built for **Trades Pro Marketing**, modeled on the high-converting pattern used by remodeling/trade-focused marketing agencies. It's a 3-step flow:
+
+**`survey.html` (entry point) → `index.html` (offer + calendar) → `thank-you.html` (confirmation, VSL, testimonials)**
+
+Point your ads/links at `survey.html` — that's the first thing visitors see, not `index.html`.
 
 ## Files
 
 ```
-index.html          Main landing page
-thank-you.html       Post-booking confirmation page (VSL + testimonials)
-css/styles.css       All styling (black + red trades palette, matches logo), shared by both pages
-js/main.js           Mobile nav toggle, FAQ accordion, footer year
+survey.html          Step 1: quick qualifying survey (GHL Survey/Form embed slot)
+index.html           Step 2: main offer page + calendar booking
+thank-you.html        Step 3: post-booking confirmation page (VSL + testimonials)
+css/styles.css        All styling (black + red trades palette, matches logo), shared by all three pages
+js/main.js            Mobile nav toggle, FAQ accordion, footer year
 assets/img/logo.png        Your real logo — original colors, transparent background (favicon)
 assets/img/logo-white.png  Your real logo — recolored white/red, transparent background (dark header/footer)
 ```
 
-Open `index.html` directly in a browser, or serve the folder with any static host, to preview.
+Open any of the three HTML files directly in a browser, or serve the folder with any static host, to preview.
 
 ## 1. Logo
 
@@ -51,7 +56,25 @@ plus the required `form_embed.js` script before `</body>`. If you swap calendars
 
 Note: this sandbox's network policy blocks `leadconnectorhq.com`, so it couldn't be visually verified from here — but the markup is standard GHL embed syntax and will render normally once the page is hosted for real or opened in GHL.
 
-## 4. Thank-you page (`thank-you.html`)
+## 4. Survey page (`survey.html`) — the new front door
+
+This is now the first page visitors land on, before they ever see the offer or calendar. It's intentionally minimal: logo, a short "before we book your call" intro, and a survey embed slot — same placeholder pattern the calendar used to have.
+
+**To add your survey:** create a **Survey** (or **Form**) in GHL under **Sites → Forms/Surveys**, with whatever qualifying questions you want (e.g. trade type, monthly revenue, biggest challenge, then name/phone/email). Grab its embed code from the survey's **Embed** option — it'll look like:
+
+```html
+<iframe src="https://api.leadconnectorhq.com/widget/survey/YOUR_SURVEY_ID"
+        style="width:100%;height:100%;border:none" id="ghl-survey"></iframe>
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+```
+
+Open `survey.html`, find the `<div class="survey-widget" id="surveyEmbed">` block, and replace the `.survey-placeholder` div inside it with that code.
+
+**To chain it to the rest of the funnel:** in your survey's settings in GHL, set the "after submit" action to **redirect to a URL**, pointing at your hosted `index.html` (the booking page). That's what actually makes this "the first thing they see" — GHL sends them from the survey straight into the offer/calendar page once they finish, no custom JS gating required.
+
+I don't have your actual survey questions, so this ships as a placeholder — same as the calendar did before you sent its embed link. Tell me what you want asked and I can also just describe the exact GHL survey setup, but the questions themselves have to be built in GHL's Survey builder since that's what actually creates GHL contacts from the answers.
+
+## 5. Thank-you page (`thank-you.html`)
 
 A simple, single-focus follow-up page that visitors land on after booking — logo, confirmation message, VSL slot, testimonials, minimal footer. No nav, no upsell sections, matching the "keep it simple" style of the reference funnel page.
 
@@ -61,46 +84,46 @@ A simple, single-focus follow-up page that visitors land on after booking — lo
 
 **To connect it to your calendar:** in GHL, open your calendar's settings and look for **Actions → Redirect URL / Confirmation Page** (naming varies slightly by GHL version), and set it to your hosted `thank-you.html` URL (e.g. `https://yourdomain.com/thank-you.html`). That makes GHL send people here automatically right after they book, instead of showing its default confirmation screen.
 
-## 5. Integrating into GoHighLevel
+## 6. Integrating into GoHighLevel
 
-You have two options. Option A puts the page directly inside GHL's Sites/Funnels product (what most people mean by "put it in GHL"). Option B hosts it elsewhere and only uses GHL for the calendar/automations.
+You have two options. Option A puts the pages directly inside GHL's Sites/Funnels product (what most people mean by "put it in GHL"). Option B hosts them elsewhere and only uses GHL for the survey/calendar/automations.
 
 ### Option A — Paste it into a GHL Funnel/Website (recommended)
 
-GHL's page builder can't read relative file paths like `css/styles.css` or `assets/img/logo.png` — its Custom Code element only accepts one self-contained HTML block. So instead of pasting `index.html` as-is, use the pre-built files in **`ghl-embed/`**, which have the CSS and JS already inlined:
+GHL's page builder can't read relative file paths like `css/styles.css` or `assets/img/logo.png` — its Custom Code element only accepts one self-contained HTML block. So instead of pasting `survey.html` / `index.html` / `thank-you.html` as-is, use the pre-built files in **`ghl-embed/`**, which have the CSS and JS already inlined:
 
-- `ghl-embed/main-page-embed.html` → for your main funnel step
+- `ghl-embed/survey-embed.html` → for the survey/entry funnel step
+- `ghl-embed/main-page-embed.html` → for the main offer + calendar step
 - `ghl-embed/thank-you-embed.html` → for the follow-up step
 
 Steps:
 1. **Upload your logo images to GHL first**, so they have a public URL Custom Code can point to:
    - In GHL: **Sites → Media Storage** (or **Settings → Media Storage**) → Upload `assets/img/logo.png` and `assets/img/logo-white.png`.
    - Click each uploaded file and copy its URL.
-2. **Open `ghl-embed/main-page-embed.html`** in a text editor and replace every `{{LOGO_WHITE_URL}}` with the logo-white.png URL you just copied (there are 2 — header and footer). Do the same in `ghl-embed/thank-you-embed.html` (also 2 occurrences).
-3. **Create the funnel:** in GHL go to **Sites → Funnels → + New Funnel**, name it, and add a step for your main page (choose a **blank** template so there's no pre-built content in the way).
-4. On that page, delete any default sections GHL added, then drag in a **Custom Code / Custom HTML** element covering the page, open its code editor, and paste in the entire contents of your edited `main-page-embed.html`. Save.
-5. **Add a second funnel step** for the thank-you page the same way, using `thank-you-embed.html`.
+2. **Open each file in `ghl-embed/`** in a text editor and replace every `{{LOGO_WHITE_URL}}` with the logo-white.png URL you just copied (2 occurrences per file).
+3. **Create the funnel:** in GHL go to **Sites → Funnels → + New Funnel**, name it, and add three steps — Survey, Booking, Thank You — each on a **blank** template so there's no pre-built content in the way.
+4. On the Survey step, delete any default sections GHL added, drag in a **Custom Code / Custom HTML** element covering the page, and paste in the entire contents of your edited `survey-embed.html`. Save.
+5. Repeat for the Booking step using `main-page-embed.html`, and the Thank You step using `thank-you-embed.html`.
 6. **Set your favicon** separately — that's a page/funnel **Settings** option in GHL (not part of the Custom Code block); upload `assets/img/logo.png` there.
 7. **Publish the funnel**, then connect your real domain under **Settings → Domains** if you don't want to launch on GHL's default subdomain.
-8. **Point the calendar's redirect** at your new thank-you step's live URL: open your calendar's settings → **Actions → Redirect URL / Confirmation Page** → paste the thank-you page's published URL.
-9. **Test it end to end**: open the published funnel, book a real test appointment on the calendar, confirm you land on the thank-you page, and confirm the contact shows up in GHL.
+8. **Chain the steps together**: set your survey's post-submit redirect (survey settings → after-submit action) to the published Booking step's URL, and your calendar's redirect (calendar settings → Actions → Redirect URL) to the published Thank You step's URL.
+9. **Point your ads/links at the Survey step's URL** — that's the funnel's actual entry point now, not the Booking page.
+10. **Test it end to end**: open the published Survey step, fill it out, confirm you land on the Booking page, book a real test appointment, confirm you land on Thank You, and confirm the contact shows up in GHL.
 
-The calendar iframe and `form_embed.js` script are already correct GHL syntax in both embed files, so you don't need to touch those — they just need to be inside a live GHL page (or any real domain) to work; they won't render from a local file.
+The calendar iframe and `form_embed.js` script are already correct GHL syntax in these embed files, so you don't need to touch those — they just need to be inside a live GHL page (or any real domain) to work; they won't render from a local file.
 
-### Option B — Host it yourself, use GHL only for calendar/automations
+### Option B — Host it yourself, use GHL only for survey/calendar/automations
 
 1. Deploy this repo's root folder (as-is, with the relative paths intact) to any static host — Netlify, Vercel, Cloudflare Pages, GitHub Pages, or your own server.
-2. Point your domain at it. The GHL calendar embed and thank-you redirect work exactly the same either way.
+2. Point your domain at it, and point your ads/links at `survey.html` (not `index.html`). The GHL survey/calendar embeds and redirects work exactly the same either way.
 
 Option A keeps everything inside GHL (one dashboard, easier for non-technical edits later via the page builder). Option B is faster to stand up and easier to keep in version control, but lives outside GHL.
 
-## 6. Lead capture / form → GHL automations
+## 7. Lead capture / form → GHL automations
 
-This page currently drives all traffic to the calendar booking section rather than a separate form, so once step 3 is done (real GHL calendar embedded), every booking already creates/updates a GHL contact automatically — no extra webhook needed.
+The survey step (`survey.html`) is now the top-of-funnel qualifier — once you've built it in GHL and wired up the redirect (see section 4), every submission already creates/updates a GHL contact automatically, and every calendar booking on the following step updates that same contact. No extra webhook needed for either.
 
-If you'd also like a top-of-funnel lead form (e.g., "Get My Free Growth Plan") before the calendar step, add a GHL **Form** element in the `booking` section and connect it to a workflow that triggers your follow-up automations.
-
-## 7. Content you'll likely want to personalize
+## 8. Content you'll likely want to personalize
 
 - Phone number and email in the footer (`tel:` / `mailto:` links)
 - Testimonials (currently placeholder quotes/names)
