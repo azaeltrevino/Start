@@ -132,7 +132,7 @@ ul{margin:0;padding:0;list-style:none;}
 .video-testimonial-card{display:flex;flex-direction:column;gap:14px;}
 .video-testimonial-card .video-embed{max-width:none;margin:0;}
 .video-testimonial-card .testimonial-name{text-align:center;}
-@media(min-width:900px){.video-testimonials-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:700px){.video-testimonials-grid{grid-template-columns:repeat(2,1fr);}}
 
 /* Booking */
 .booking{padding:80px 0;background:var(--navy-800);}
