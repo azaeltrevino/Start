@@ -58,21 +58,17 @@ Note: this sandbox's network policy blocks `leadconnectorhq.com`, so it couldn't
 
 ## 4. Survey page (`survey.html`) — the new front door
 
-This is now the first page visitors land on, before they ever see the offer or calendar. It's intentionally minimal: logo, a short "before we book your call" intro, and a survey embed slot — same placeholder pattern the calendar used to have.
-
-**To add your survey:** create a **Survey** (or **Form**) in GHL under **Sites → Forms/Surveys**, with whatever qualifying questions you want (e.g. trade type, monthly revenue, biggest challenge, then name/phone/email). Grab its embed code from the survey's **Embed** option — it'll look like:
+This is the first page visitors land on, before they ever see the offer or calendar. It's intentionally minimal: logo, a short "before we book your call" intro, and your live GHL survey embedded below it.
 
 ```html
-<iframe src="https://api.leadconnectorhq.com/widget/survey/YOUR_SURVEY_ID"
-        style="width:100%;height:100%;border:none" id="ghl-survey"></iframe>
-<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+<iframe src="https://api.leadconnectorhq.com/widget/survey/tun1SD6PHfLc4ovBnPAc" style="border:none;width:100%;" scrolling="no" id="tun1SD6PHfLc4ovBnPAc" title="survey"></iframe>
 ```
 
-Open `survey.html`, find the `<div class="survey-widget" id="surveyEmbed">` block, and replace the `.survey-placeholder` div inside it with that code.
+plus the required `form_embed.js` script before `</body>`. If you swap in a different survey later, replace just the `src` URL and `id` with the new one from the survey's **Embed** option in GHL.
 
-**To chain it to the rest of the funnel:** in your survey's settings in GHL, set the "after submit" action to **redirect to a URL**, pointing at your hosted `index.html` (the booking page). That's what actually makes this "the first thing they see" — GHL sends them from the survey straight into the offer/calendar page once they finish, no custom JS gating required.
+Note: this sandbox's network policy blocks `leadconnectorhq.com`, so it couldn't be visually verified from here (same limitation as the calendar embed) — but the markup is standard GHL embed syntax and will render normally once the page is hosted for real or opened in GHL.
 
-I don't have your actual survey questions, so this ships as a placeholder — same as the calendar did before you sent its embed link. Tell me what you want asked and I can also just describe the exact GHL survey setup, but the questions themselves have to be built in GHL's Survey builder since that's what actually creates GHL contacts from the answers.
+**To chain it to the rest of the funnel:** in your survey's settings in GHL, set the "after submit" action to **redirect to a URL**, pointing at your hosted `index.html` (the booking page). That's what actually makes this "the first thing they see" — GHL sends people from the survey straight into the offer/calendar page once they finish, no custom JS gating required.
 
 ## 5. Thank-you page (`thank-you.html`)
 
