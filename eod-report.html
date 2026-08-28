@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EOD Report | Trades Pro Marketing</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ SIMPLE HEADER ============ -->
+<header class="ty-header">
+  <div class="container">
+    <img src="assets/img/logo-white.png" alt="Trades Pro Marketing" class="brand-logo">
+  </div>
+</header>
+
+<!-- ============ EOD REPORT FORM ============ -->
+<section class="eod-section">
+  <div class="container eod-inner">
+    <p class="eyebrow center">MEDIA BUYER</p>
+    <h1 class="center">End Of Day Report</h1>
+    <p class="eod-intro center">Fill this out at the end of your day, hit <strong>Generate Report</strong>, then <strong>Copy</strong> and paste it into Slack, email, or text.</p>
+
+    <form id="eodForm" class="eod-form">
+      <div class="eod-grid">
+        <div class="eod-field">
+          <label for="reportDate">Date</label>
+          <input type="date" id="reportDate" name="reportDate" required>
+        </div>
+        <div class="eod-field">
+          <label for="buyerName">Your Name</label>
+          <input type="text" id="buyerName" name="buyerName" placeholder="e.g. Jordan Smith" required>
+        </div>
+        <div class="eod-field">
+          <label for="clientName">Client / Account</label>
+          <input type="text" id="clientName" name="clientName" placeholder="e.g. ABC Roofing">
+        </div>
+        <div class="eod-field">
+          <label for="platform">Platform</label>
+          <select id="platform" name="platform">
+            <option value="">Select platform…</option>
+            <option>Meta Ads</option>
+            <option>Google Ads</option>
+            <option>TikTok Ads</option>
+            <option>LinkedIn Ads</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <h3 class="eod-subhead">Spend &amp; Results</h3>
+      <div class="eod-grid eod-grid-4">
+        <div class="eod-field">
+          <label for="adSpend">Ad Spend ($)</label>
+          <input type="number" id="adSpend" name="adSpend" min="0" step="0.01" inputmode="decimal">
+        </div>
+        <div class="eod-field">
+          <label for="leads">Leads</label>
+          <input type="number" id="leads" name="leads" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="eod-field">
+          <label for="impressions">Impressions</label>
+          <input type="number" id="impressions" name="impressions" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="eod-field">
+          <label for="clicks">Clicks</label>
+          <input type="number" id="clicks" name="clicks" min="0" step="1" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="eod-field">
+        <label for="campaignChanges">Campaign Changes Today (launched, paused, budgets adjusted, creative swapped, etc.)</label>
+        <textarea id="campaignChanges" name="campaignChanges" rows="3" placeholder="e.g. Paused underperforming ad set in Campaign B, launched 2 new creatives on Campaign A"></textarea>
+      </div>
+
+      <div class="eod-field">
+        <label for="wins">Wins / What's Working</label>
+        <textarea id="wins" name="wins" rows="3" placeholder="e.g. New hook is outperforming, CPL down 15% from yesterday"></textarea>
+      </div>
+
+      <div class="eod-field">
+        <label for="issues">Issues / Blockers</label>
+        <textarea id="issues" name="issues" rows="3" placeholder="e.g. Ad account flagged for review, need approval on new budget"></textarea>
+      </div>
+
+      <div class="eod-field">
+        <label for="planTomorrow">Plan For Tomorrow</label>
+        <textarea id="planTomorrow" name="planTomorrow" rows="3" placeholder="e.g. Test 3 new hooks, increase budget on Campaign A if CPL holds"></textarea>
+      </div>
+
+      <div class="eod-actions">
+        <button type="submit" class="btn btn-primary btn-lg">Generate Report</button>
+        <button type="button" id="resetBtn" class="btn btn-ghost">Clear Form</button>
+      </div>
+    </form>
+
+    <div id="eodOutput" class="eod-output" hidden>
+      <div class="eod-output-head">
+        <h3>Report Preview</h3>
+        <button type="button" id="copyBtn" class="btn btn-primary">Copy Report</button>
+      </div>
+      <textarea id="reportText" class="eod-textarea" readonly></textarea>
+      <p id="copyConfirm" class="eod-copy-confirm" hidden>Copied to clipboard ✓</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIMPLE FOOTER ============ -->
+<footer class="site-footer ty-footer">
+  <div class="container ty-footer-inner">
+    <img src="assets/img/logo-white.png" alt="Trades Pro Marketing" class="brand-logo">
+    <p>&copy; <span id="year"></span> Trades Pro Marketing. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/eod-report.js"></script>
+</body>
+</html>
