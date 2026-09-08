@@ -1,24 +1,37 @@
-# Trades Pro Marketing — Landing Page
+# Trades Pro Marketing — Landing Pages
 
-A self-contained, mobile-responsive lead-generation funnel built for **Trades Pro Marketing**, modeled on the high-converting pattern used by remodeling/trade-focused marketing agencies. It's a single main page followed by a confirmation page:
+A self-contained, mobile-responsive lead-generation funnel built for **Trades Pro Marketing**, modeled on the high-converting pattern used by remodeling/trade-focused marketing agencies.
 
-**`index.html`** — offer/hero → survey → testimonials (text quotes + videos) → footer
+**`index.html`** — general trades offer/hero → survey → testimonials (text quotes + videos) → footer
 **`thank-you.html`** — confirmation page after the survey is submitted
+**`metal-buildings.html`** — vertical-specific sales page for metal building / pole barn contractors (see below)
 
-Point your ads/links at `index.html` — that's the first thing visitors see.
+Point your ads/links at whichever page matches the campaign — `index.html` for general trades, `metal-buildings.html` for metal building contractors.
 
 ## Files
 
 ```
-index.html           Main page: offer, survey, testimonials (entry point)
-thank-you.html        Confirmation page (VSL + testimonials)
-css/styles.css        All styling (black + red trades palette, matches logo), shared by every page
-js/main.js            Footer year
+index.html                  Main page: offer, survey, testimonials (general trades entry point)
+thank-you.html               Confirmation page (VSL + testimonials)
+metal-buildings.html         Sales page for metal building contractors, with a live building configurator demo
+css/styles.css                Shared styling (black + red trades palette, matches logo) used by every page
+css/metal-buildings.css       Extra styles for the configurator, pricing cards, and FAQ on metal-buildings.html
+js/main.js                    Footer year
+js/metal-buildings.js         Configurator geometry/pricing logic + lead form handling for metal-buildings.html
 assets/img/logo.png        Your real logo — original colors, transparent background (favicon)
 assets/img/logo-white.png  Your real logo — recolored white/red, transparent background (dark header/footer)
 ```
 
-Open `index.html` or `thank-you.html` directly in a browser, or serve the folder with any static host, to preview.
+Open any `.html` file directly in a browser, or serve the folder with any static host, to preview.
+
+## `metal-buildings.html` — the contractor sales page
+
+This page pitches metal building / pole barn contractors on a done-for-you website with a built-in **"Design Your Own Building" configurator** — the tool their own homeowner visitors would use to pick a building size, roof style and colors and get an instant price estimate, which then becomes a qualified lead.
+
+- The configurator (in the "Try The Live Demo" section) is a real, working widget — not a mockup. It's driven entirely by `js/metal-buildings.js`: dimensions/roof/colors update an SVG building preview and a price estimate live, using illustrative `$/sqft` rates in `BASE_RATES`. Swap those rates for a contractor's real numbers before quoting anyone for real.
+- The **Packages** section is the upsell ladder (Starter Site → Growth Site → Elite Site + Configurator) — this is what you'd walk a contractor prospect through on a sales call.
+- The lead form at the bottom (`#get-started`) auto-fills with whatever config the visitor tried in the demo. It currently has no backend wired up — `LEAD_ENDPOINT_URL` in `js/metal-buildings.js` is empty, so submissions just show a success message locally. Point it at a webhook (GHL, Zapier, your CRM), or replace the `<form>` with a GHL survey iframe embed the same way `index.html` does, before sending real traffic.
+- Testimonials and stats are placeholders — swap them for real client results before launch, same as the rest of the site.
 
 ## 1. Logo
 

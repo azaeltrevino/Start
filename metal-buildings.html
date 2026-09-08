@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metal Building Contractor Websites With A Live Quote Tool | Trades Pro Marketing</title>
+<meta name="description" content="Done-for-you websites for metal building contractors — with a built-in tool that lets homeowners design and price their own building, then sends you the lead. See it live below.">
+<link rel="icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/metal-buildings.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#top" class="brand">
+      <img src="assets/img/logo-white.png" alt="Trades Pro Marketing" class="brand-logo">
+    </a>
+    <a href="#get-started" class="btn btn-primary btn-header">Book My Free Demo Call</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <p class="eyebrow">FOR METAL BUILDING &amp; POLE BARN CONTRACTORS</p>
+    <h1>Let Homeowners <span class="accent">Design &amp; Price Their Own Building</span> Right On Your Website — Then We Send You The Lead</h1>
+    <p class="hero-sub">Trades Pro Marketing builds metal building contractors a website with a real interactive configurator built in — homeowners pick their size, style and colors, get an instant estimate, and submit it as a qualified lead straight to you. Try the live demo below.</p>
+    <div class="urgency-flag">⏳ We only onboard 3 new metal building contractors per month per service area — spots for this month are filling now.</div>
+    <div class="hero-cta-row">
+      <a href="#demo" class="btn btn-primary btn-lg">Try The Live Demo</a>
+      <div class="hero-cta-note">
+        <span class="stars">★★★★★</span>
+        <span>Built for steel building &amp; pole barn dealers</span>
+      </div>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-stat"><strong>3,200+</strong><span>Jobs Booked For Trade Clients</span></div>
+      <div class="trust-stat"><strong>24/7</strong><span>Your Site Quotes Jobs While You Sleep</span></div>
+      <div class="trust-stat"><strong>90-Day</strong><span>Money-Back Guarantee</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow center">THE PROBLEM</p>
+      <h2 class="center">Your Website Is Costing You Jobs — It Just Doesn't Look Like It</h2>
+      <p>Most metal building websites are digital brochures: a PDF price sheet, a phone number, and a "contact us" form nobody fills out. Meanwhile the homeowner just wants to know what a 30x40 shop with a lean-to actually costs — and if your site can't tell them, your competitor's can.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="mark">01</span>
+        <h3>Homeowners Bounce Without Pricing</h3>
+        <p>No price = no lead. Most visitors won't call for a number — they'll just check the next contractor's site instead.</p>
+      </div>
+      <div class="problem-card">
+        <span class="mark">02</span>
+        <h3>Your Team Quotes Tire-Kickers</h3>
+        <p>Every unqualified call is time you're not spending with homeowners who are ready to build now.</p>
+      </div>
+      <div class="problem-card">
+        <span class="mark">03</span>
+        <h3>Generic Sites Don't Feel Serious</h3>
+        <p>A static template makes a real contractor look like a side hustle. A working quote tool makes you look like the pro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIVE DEMO / CONFIGURATOR ============ -->
+<section class="configurator" id="demo">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow center">SEE IT WORKING</p>
+      <h2 class="center">This Is The Tool Your Homeowners Would Use</h2>
+      <p>This is the exact widget we drop into your website. Try it — change the size, roof style, and colors and watch the estimate update live. This is what turns a browser into a booked estimate at 11pm on a Tuesday.</p>
+    </div>
+
+    <div class="configurator-shell">
+      <div class="configurator-preview">
+        <span class="configurator-badge">Live Instant Estimate</span>
+        <svg id="buildingSvg" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Preview of the configured metal building"></svg>
+        <p class="dims-readout" id="dimsReadout"></p>
+        <div class="price-display">
+          <span class="price-label">Estimated Price Range</span>
+          <span class="price-value" id="priceValue"></span>
+          <span class="price-note">Instant ballpark estimate. Final price confirmed by the contractor after a free site visit.</span>
+        </div>
+      </div>
+
+      <div class="configurator-controls">
+        <div class="control-group">
+          <label class="group-label">Building Type</label>
+          <div class="pill-group">
+            <button type="button" class="pill" data-type="garage" aria-pressed="true">Garage</button>
+            <button type="button" class="pill" data-type="barn" aria-pressed="false">Barn</button>
+            <button type="button" class="pill" data-type="workshop" aria-pressed="false">Workshop</button>
+            <button type="button" class="pill" data-type="carport" aria-pressed="false">Carport</button>
+            <button type="button" class="pill" data-type="commercial" aria-pressed="false">Commercial</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="group-label" for="widthRange">Width — <span class="readout" id="widthOut">30</span> ft</label>
+          <input type="range" id="widthRange" min="20" max="100" step="2" value="30">
+        </div>
+        <div class="control-group">
+          <label class="group-label" for="lengthRange">Length — <span class="readout" id="lengthOut">40</span> ft</label>
+          <input type="range" id="lengthRange" min="20" max="150" step="2" value="40">
+        </div>
+        <div class="control-group">
+          <label class="group-label" for="heightRange">Height — <span class="readout" id="heightOut">10</span> ft</label>
+          <input type="range" id="heightRange" min="8" max="20" step="1" value="10">
+        </div>
+
+        <div class="control-group">
+          <label class="group-label">Roof Style</label>
+          <div class="pill-group">
+            <button type="button" class="pill" data-roof="gable" aria-pressed="true">Gable (A-Frame)</button>
+            <button type="button" class="pill" data-roof="slope" aria-pressed="false">Single-Slope</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="group-label">Wall Color</label>
+          <div class="swatch-group">
+            <button type="button" class="swatch" data-wall="#c9cdd1" style="background:#c9cdd1" aria-pressed="true" aria-label="Galvalume"></button>
+            <button type="button" class="swatch" data-wall="#f5f5f2" style="background:#f5f5f2" aria-pressed="false" aria-label="White"></button>
+            <button type="button" class="swatch" data-wall="#d8c9a3" style="background:#d8c9a3" aria-pressed="false" aria-label="Light Stone"></button>
+            <button type="button" class="swatch" data-wall="#7a5230" style="background:#7a5230" aria-pressed="false" aria-label="Clay Brown"></button>
+            <button type="button" class="swatch" data-wall="#3b3f42" style="background:#3b3f42" aria-pressed="false" aria-label="Charcoal"></button>
+            <button type="button" class="swatch" data-wall="#8c2a2a" style="background:#8c2a2a" aria-pressed="false" aria-label="Barn Red"></button>
+            <button type="button" class="swatch" data-wall="#2f4a34" style="background:#2f4a34" aria-pressed="false" aria-label="Forest Green"></button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="group-label">Roof Color</label>
+          <div class="swatch-group">
+            <button type="button" class="swatch" data-roofcolor="#3b3f42" style="background:#3b3f42" aria-pressed="true" aria-label="Charcoal"></button>
+            <button type="button" class="swatch" data-roofcolor="#1a1a1a" style="background:#1a1a1a" aria-pressed="false" aria-label="Black"></button>
+            <button type="button" class="swatch" data-roofcolor="#c9cdd1" style="background:#c9cdd1" aria-pressed="false" aria-label="Galvalume"></button>
+            <button type="button" class="swatch" data-roofcolor="#8c2a2a" style="background:#8c2a2a" aria-pressed="false" aria-label="Barn Red"></button>
+            <button type="button" class="swatch" data-roofcolor="#3c5a72" style="background:#3c5a72" aria-pressed="false" aria-label="Slate Blue"></button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="group-label">Trim Color</label>
+          <div class="swatch-group">
+            <button type="button" class="swatch" data-trim="#ffffff" style="background:#ffffff" aria-pressed="true" aria-label="White"></button>
+            <button type="button" class="swatch" data-trim="#1a1a1a" style="background:#1a1a1a" aria-pressed="false" aria-label="Black"></button>
+            <button type="button" class="swatch" data-trim="#8c2a2a" style="background:#8c2a2a" aria-pressed="false" aria-label="Barn Red"></button>
+          </div>
+        </div>
+
+        <button type="button" id="getQuoteBtn" class="btn btn-primary btn-lg">Get My Free Quote →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow center">HOW IT WORKS ON YOUR SITE</p>
+      <h2 class="center">From Website Visitor To Booked Estimate — Automatically</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-number">1</span>
+        <h3>Homeowner Designs Their Building</h3>
+        <p>They pick size, roof style and colors on your site — just like the demo above — and see a real-time estimate.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-number">2</span>
+        <h3>Their Config Lands In Your CRM</h3>
+        <p>The exact spec and contact info are sent straight to you (or your CRM/GHL pipeline) as a qualified, pre-scoped lead.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-number">3</span>
+        <h3>You Close An Already-Warm Buyer</h3>
+        <p>No tire-kicker calls — you're following up with someone who already knows the size, style and rough price they want.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES / UPSELL ============ -->
+<section class="packages">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow center">PACKAGES</p>
+      <h2 class="center">Start Where You're At. Upgrade When You're Ready.</h2>
+      <p>Most contractors start with the Starter Site, then upgrade once the phone starts ringing and they see what a real quote tool does for close rates.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card">
+        <p class="package-name">Starter Site</p>
+        <p class="package-tagline">A professional site that finally looks like a real company.</p>
+        <p class="package-price">$1,497<span> setup</span></p>
+        <ul class="package-list">
+          <li>5-page mobile-first website</li>
+          <li>Photo gallery of past builds</li>
+          <li>Click-to-call &amp; contact form</li>
+          <li>Google Business Profile setup</li>
+        </ul>
+        <a href="#get-started" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="package-card featured">
+        <span class="package-flag">Highest Converting</span>
+        <p class="package-name">Elite Site + Configurator</p>
+        <p class="package-tagline">The interactive quote tool you just tried, live on your site.</p>
+        <p class="package-price">$3,997<span> setup</span></p>
+        <ul class="package-list">
+          <li>Everything in Growth Site</li>
+          <li>Custom "Design Your Building" configurator</li>
+          <li>Automatic lead scoring &amp; CRM routing</li>
+          <li>Monthly conversion &amp; lead reporting</li>
+          <li>90-day money-back guarantee</li>
+        </ul>
+        <a href="#get-started" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="package-card">
+        <p class="package-name">Growth Site</p>
+        <p class="package-tagline">Adds the tools that turn visits into conversations.</p>
+        <p class="package-price">$2,497<span> setup</span></p>
+        <ul class="package-list">
+          <li>Everything in Starter Site</li>
+          <li>Financing payment-estimate calculator</li>
+          <li>Automated review requests</li>
+          <li>Live chat &amp; local SEO package</li>
+        </ul>
+        <a href="#get-started" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+
+    <div class="addons">
+      <h3>Optional Add-Ons</h3>
+      <ul class="addons-grid">
+        <li>Extra building models for the configurator (barns, carports, RV covers)</li>
+        <li>Google &amp; Facebook ad management</li>
+        <li>Financing partner integration</li>
+        <li>Missed-call text-back &amp; SMS follow-up</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="video-testimonials" id="testimonials">
+  <div class="container">
+    <p class="eyebrow center light">RESULTS</p>
+    <h2 class="center light">Hear From Metal Building Contractors We've Helped</h2>
+    <div class="results-grid">
+      <div class="testimonial-card">
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-quote">"The quote tool alone changed how people show up to calls. They already know what they want before we say a word."</p>
+        <p class="testimonial-name">Jeff T. — Steel Building Dealer</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-quote">"We went from 5 quote calls a week to 30+ configured leads a month. Half of them are ready to sign."</p>
+        <p class="testimonial-name">Amanda S. — Pole Barn Contractor</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="stars">★★★★★</p>
+        <p class="testimonial-quote">"Our site finally looks like a real operation instead of a Craigslist ad. Customers say that constantly now."</p>
+        <p class="testimonial-name">Ray D. — Ag &amp; Commercial Buildings</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow center">QUESTIONS</p>
+      <h2 class="center">Before You Book The Call</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need to replace my whole website?</summary>
+        <p>No. We can rebuild your site fully, or just embed the configurator into the site you already have — whatever gets it live fastest.</p>
+      </details>
+      <details>
+        <summary>How long does it take to launch?</summary>
+        <p>Most Starter and Growth sites launch in 2-3 weeks. The Elite configurator build typically takes 3-4 weeks once we have your pricing and building specs.</p>
+      </details>
+      <details>
+        <summary>Will the pricing shown to homeowners be accurate?</summary>
+        <p>You give us your real per-square-foot rates, height and roof-style adjustments up front — the tool always shows an estimate range built from your numbers, never a guess.</p>
+      </details>
+      <details>
+        <summary>Does it connect to my CRM?</summary>
+        <p>Yes — leads and their configured specs route into GoHighLevel, or most major CRMs, so nothing lands only in an inbox.</p>
+      </details>
+      <details>
+        <summary>What if it doesn't work for my business?</summary>
+        <p>Every package is backed by our 90-day money-back guarantee. No long-term contracts, no risk.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA / LEAD FORM ============ -->
+<section class="final-cta" id="get-started">
+  <div class="container final-cta-inner">
+    <div class="final-cta-copy">
+      <p class="eyebrow">GET STARTED</p>
+      <h2>Ready To Turn Your Website Into Your Best Salesperson?</h2>
+      <p>Book a free demo call and we'll walk you through exactly how the configurator would look with your buildings, your pricing, and your branding.</p>
+      <ul class="final-cta-list">
+        <li>Free, no-pressure 20-minute call</li>
+        <li>See the configurator built for your building types</li>
+        <li>90-day money-back guarantee — no long-term contracts</li>
+      </ul>
+    </div>
+    <form class="lead-form" id="leadForm">
+      <h3>Book Your Free Demo Call</h3>
+      <div class="form-row">
+        <label for="leadName">Full Name</label>
+        <input type="text" id="leadName" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="leadCompany">Company Name</label>
+        <input type="text" id="leadCompany" name="company" required>
+      </div>
+      <div class="form-row">
+        <label for="leadPhone">Phone</label>
+        <input type="tel" id="leadPhone" name="phone" required>
+      </div>
+      <div class="form-row">
+        <label for="leadEmail">Email</label>
+        <input type="email" id="leadEmail" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="leadWebsite">Current Website (if any)</label>
+        <input type="text" id="leadWebsite" name="website">
+      </div>
+      <div class="form-row">
+        <label for="quoteSummary">Demo Config You Tried Above</label>
+        <textarea id="quoteSummary" name="demo_config" readonly></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">Book My Free Demo Call</button>
+      <p class="form-note">We'll text and email you to confirm a time. No spam, ever.</p>
+    </form>
+    <div class="form-success" id="formSuccess">
+      <div class="ty-check">✓</div>
+      <h3>You're All Set!</h3>
+      <p>We got your info — expect a text or call shortly to lock in your demo time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer ty-footer">
+  <div class="container ty-footer-inner">
+    <img src="assets/img/logo-white.png" alt="Trades Pro Marketing" class="brand-logo">
+    <p>
+      <a href="tel:+10000000000">(000) 000-0000</a> &middot;
+      <a href="mailto:hello@tradespromarketing.com">hello@tradespromarketing.com</a>
+    </p>
+    <p>&copy; <span id="year"></span> Trades Pro Marketing. All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="#get-started" class="sticky-cta">Book My Free Demo Call</a>
+
+<script src="js/metal-buildings.js"></script>
+</body>
+</html>

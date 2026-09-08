@@ -1,0 +1,180 @@
+/* ===== Metal Building Contractor Sales Page — extends styles.css ===== */
+
+:root{
+  --steel-800:#171a1c;
+  --steel-700:#22262a;
+  --steel-600:#343a3f;
+  --line:rgba(255,255,255,.10);
+}
+
+.section-head{max-width:700px;margin:0 auto 3em;text-align:center;}
+.section-head p:last-child{margin:0;color:#b5b5b5;}
+
+/* ============ PROBLEM ============ */
+.problem{padding:72px 0;background:var(--navy-900);color:var(--white);}
+.problem-grid{display:grid;gap:20px;grid-template-columns:1fr;margin-top:1em;}
+.problem-card{
+  background:var(--navy-800);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;
+}
+.problem-card .mark{color:var(--orange);font-size:1.6rem;font-weight:800;display:block;margin-bottom:.4em;}
+.problem-card h3{font-size:1.05rem;margin-bottom:.35em;}
+.problem-card p{color:#b5b5b5;font-size:.92rem;margin:0;}
+@media(min-width:800px){.problem-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* ============ CONFIGURATOR ============ */
+.configurator{padding:76px 0;background:var(--steel-800);color:var(--white);}
+.configurator-shell{
+  display:grid;gap:28px;grid-template-columns:1fr;
+  background:var(--steel-700);border:1px solid var(--line);
+  border-radius:20px;padding:20px;
+}
+@media(min-width:960px){.configurator-shell{grid-template-columns:1.15fr 1fr;padding:28px;}}
+
+.configurator-preview{
+  background:linear-gradient(180deg,#3a4a5c 0%, #29343d 55%, #1c2328 100%);
+  border-radius:16px;
+  padding:20px 16px 16px;
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;
+  min-height:360px;
+}
+.configurator-badge{
+  position:absolute;top:16px;left:16px;
+  background:rgba(228,23,42,.9);color:var(--white);
+  font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 12px;border-radius:999px;
+}
+#buildingSvg{width:100%;max-width:440px;height:auto;}
+.dims-readout{color:#dfe6ea;font-size:.85rem;font-weight:600;margin-top:6px;}
+
+.price-display{
+  width:100%;margin-top:16px;background:rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.12);border-radius:12px;
+  padding:16px 18px;text-align:center;
+}
+.price-label{display:block;color:#b9c2c8;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.price-value{display:block;color:var(--white);font-size:1.9rem;font-weight:800;}
+.price-note{display:block;color:#8fa0a8;font-size:.75rem;margin-top:6px;}
+
+.configurator-controls{display:flex;flex-direction:column;gap:20px;}
+.control-group label.group-label{
+  display:block;color:#dcdcdc;font-weight:700;font-size:.85rem;margin-bottom:8px;
+}
+.control-group .readout{color:var(--orange);font-weight:800;}
+
+.pill-group{display:flex;flex-wrap:wrap;gap:8px;}
+.pill{
+  background:var(--navy-800);color:#cfcfcf;border:1px solid var(--line);
+  border-radius:999px;padding:8px 16px;font-size:.85rem;font-weight:700;cursor:pointer;
+}
+.pill[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:var(--white);}
+
+input[type="range"]{
+  width:100%;accent-color:var(--orange);height:4px;background:transparent;
+}
+
+.swatch-group{display:flex;flex-wrap:wrap;gap:10px;}
+.swatch{
+  width:30px;height:30px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.25);cursor:pointer;padding:0;
+}
+.swatch[aria-pressed="true"]{border-color:var(--white);box-shadow:0 0 0 2px var(--orange);}
+
+.configurator-controls .btn{width:100%;text-align:center;margin-top:4px;}
+
+/* ============ HOW IT WORKS ============ */
+.how{padding:76px 0;background:var(--navy-900);color:var(--white);}
+.steps-grid{display:grid;gap:22px;grid-template-columns:1fr;margin-top:1em;}
+.step-card{position:relative;padding-left:52px;}
+.step-number{
+  position:absolute;left:0;top:0;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--orange);color:var(--white);font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-card h3{font-size:1.05rem;}
+.step-card p{color:#b5b5b5;font-size:.92rem;margin:0;}
+@media(min-width:800px){.steps-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* ============ PACKAGES ============ */
+.packages{padding:76px 0;background:var(--steel-800);color:var(--white);}
+.packages-grid{display:grid;gap:20px;grid-template-columns:1fr;margin-top:1em;align-items:stretch;}
+.package-card{
+  background:var(--steel-700);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 26px;display:flex;flex-direction:column;
+}
+.package-card.featured{
+  border-color:var(--orange);
+  box-shadow:0 0 0 1px var(--orange), var(--shadow-lg);
+  position:relative;
+}
+.package-flag{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--orange);color:var(--white);font-size:.7rem;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px;white-space:nowrap;
+}
+.package-name{font-size:1.15rem;color:var(--white);font-weight:800;margin-bottom:.2em;}
+.package-tagline{color:#9fb0b8;font-size:.85rem;margin-bottom:1em;}
+.package-price{font-size:2rem;font-weight:800;color:var(--white);margin-bottom:.1em;}
+.package-price span{font-size:.85rem;color:#9fb0b8;font-weight:600;}
+.package-list{display:flex;flex-direction:column;gap:9px;margin:1.2em 0 1.6em;flex:1;}
+.package-list li{padding-left:26px;position:relative;color:#cfd8dc;font-size:.9rem;}
+.package-list li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800;}
+.package-card .btn{text-align:center;}
+
+.addons{
+  margin-top:44px;background:var(--steel-700);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px 28px;
+}
+.addons h3{font-size:1.05rem;margin-bottom:.8em;}
+.addons-grid{display:grid;gap:10px;grid-template-columns:1fr;}
+.addons-grid li{padding-left:24px;position:relative;color:#b5b5b5;font-size:.88rem;}
+.addons-grid li::before{content:"+";position:absolute;left:0;color:var(--orange);font-weight:800;}
+@media(min-width:700px){.packages-grid{grid-template-columns:repeat(3,1fr);}.addons-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ============ FAQ ============ */
+.faq{padding:76px 0;background:var(--navy-900);color:var(--white);}
+.faq-list{max-width:760px;margin:1em auto 0;display:flex;flex-direction:column;gap:12px;}
+.faq-list details{
+  background:var(--navy-800);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 22px;
+}
+.faq-list summary{
+  cursor:pointer;font-weight:700;color:var(--white);list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq-list summary::-webkit-details-marker{display:none;}
+.faq-list summary::after{content:"+";color:var(--orange);font-size:1.3rem;font-weight:800;flex-shrink:0;}
+.faq-list details[open] summary::after{content:"–";}
+.faq-list p{color:#b5b5b5;font-size:.92rem;margin:.8em 0 0;}
+
+/* ============ FINAL CTA / LEAD FORM ============ */
+.final-cta{padding:80px 0;background:var(--steel-800);}
+.final-cta-inner{display:grid;gap:40px;grid-template-columns:1fr;align-items:start;}
+.final-cta-copy h2{font-size:1.9rem;}
+.final-cta-list{display:flex;flex-direction:column;gap:10px;margin-top:1.2em;}
+.final-cta-list li{padding-left:28px;position:relative;color:#cfd8dc;font-weight:600;}
+.final-cta-list li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800;}
+
+.lead-form{
+  background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);
+  padding:28px;
+}
+.lead-form h3{color:var(--navy-900);font-size:1.15rem;}
+.form-row{margin-bottom:14px;}
+.form-row label{display:block;color:var(--navy-900);font-weight:700;font-size:.82rem;margin-bottom:5px;}
+.form-row input,.form-row select,.form-row textarea{
+  width:100%;padding:12px 14px;border-radius:8px;border:1px solid #d8d8d8;
+  font-family:inherit;font-size:.95rem;color:var(--navy-900);background:#fafafa;
+}
+.form-row textarea{resize:vertical;min-height:70px;}
+.lead-form .btn{width:100%;text-align:center;margin-top:6px;}
+.form-note{color:#7a7a7a;font-size:.75rem;margin-top:10px;text-align:center;}
+
+.form-success{display:none;text-align:center;padding:20px 4px;}
+.form-success .ty-check{width:56px;height:56px;font-size:1.5rem;}
+.form-success h3{color:var(--navy-900);margin-bottom:.3em;}
+.form-success p{color:#555;font-size:.9rem;}
+
+@media(min-width:900px){.final-cta-inner{grid-template-columns:1fr 1fr;}}
